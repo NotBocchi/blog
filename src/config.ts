@@ -42,9 +42,11 @@ export function t(key: string): string {
   }
 
   const keyParts = key.split(".");
-  const candidateLanguages = [SITE_LANGUAGE, SITE_LANGUAGE.split("-")[0], "en"].filter(
-    (lang, index, langs) => lang && langs.indexOf(lang) === index,
-  );
+  const candidateLanguages = [
+    SITE_LANGUAGE,
+    SITE_LANGUAGE.split("-")[0],
+    "en",
+  ].filter((lang, index, langs) => lang && langs.indexOf(lang) === index);
 
   for (const lang of candidateLanguages) {
     const currentLangTranslations = TRANSLATIONS[lang];
