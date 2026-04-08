@@ -9,9 +9,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
 <BaseLayout title="Home">
   <MainCard
-    title="Welcome to Frosti"
-    description="A modern, responsive, feature-rich blog theme for Astro with dark/light mode and customizable options."
+    title="INK's Blog"
+    description="Meow"
     textOverlay="HOME"
+    overlayImage="/bg.jpeg"
     infoIcon="lucide:info"
   >
     <div class="space-y-8">
@@ -21,13 +22,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           <h1
             class="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-loose"
           >
-            🌟 Frosti Blog Theme
+            🌟 INK's Blog
           </h1>
           <p class="text-xl text-base-content/80 max-w-3xl mb-8">
-            A minimal, responsive, and feature-rich Astro blog theme designed for creators who value beautiful content
-            presentation and exceptional performance.
+            共享 · 便捷 · 实用
           </p>
-          <div class="flex flex-wrap gap-4 justify-center">
+          <!-- <div class="flex flex-wrap gap-4 justify-center">
             <a href="/blog" class="btn btn-primary gap-2 btn-shine-effect">
               <Icon name="lucide:book-open" class="w-5 h-5" />
               <span>Explore Blog</span>
@@ -36,7 +36,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
               <Icon name="lucide:github" class="w-5 h-5" />
               <span>Star on GitHub</span>
             </a>
-          </div>
+          </div> -->
         </div>
       </section>
 
@@ -44,56 +44,42 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       <section class="py-6">
         <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
           <Icon name="lucide:sparkles" class="w-6 h-6 text-primary" />
-          <span>Features</span>
+          <span>关于 ink</span>
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <FeatureCard
-            title="Responsive Design"
-            description="Fully responsive design that looks great on all devices from mobile to desktop."
-            icon="lucide:smartphone"
+            title="Hypixel SkyBlock"
+            description="平时喜欢玩 Hypixel SkyBlock。"
+            icon="lucide:swords"
             color="oklch(0.7 0.2 30)"
           />
 
           <FeatureCard
-            title="Dark/Light Mode"
-            description="Toggle between light and dark themes with a beautiful transition effect."
-            icon="lucide:moon"
+            title="编程"
+            description="编程是我最投入的爱好之一，喜欢折腾各种项目，把脑子里的想法一点点写成真正能跑起来的东西。"
+            icon="lucide:code-2"
             color="oklch(0.65 0.2 280)"
           />
 
           <FeatureCard
-            title="MDX Support"
-            description="Write your content in MDX with full support for React components and JSX."
-            icon="lucide:file-code"
+            title="视频剪辑"
+            description="喜欢剪辑视频，享受把素材拼接、配乐和做节奏处理，做出更有表达力内容的感觉。"
+            icon="lucide:clapperboard"
             color="oklch(0.6 0.2 160)"
           />
 
           <FeatureCard
-            title="SEO Optimized"
-            description="Built-in SEO optimization with meta tags, OpenGraph, and JSON-LD."
-            icon="lucide:search"
+            title="B站 UP主"
+            description="在 B 站发视频，分享自己的作品、想法和日常折腾出来的内容，认真做一名属于自己的 UP 主。"
+            icon="lucide:video"
             color="oklch(0.6 0.2 200)"
-          />
-
-          <FeatureCard
-            title="Fast Performance"
-            description="Optimized for speed with lazy loading, code splitting, and minimal JavaScript."
-            icon="lucide:zap"
-            color="oklch(0.8 0.2 80)"
-          />
-
-          <FeatureCard
-            title="Customizable"
-            description="Easily customize the theme to match your personal brand and preferences."
-            icon="lucide:palette"
-            color="oklch(0.7 0.2 10)"
           />
         </div>
       </section>
 
       <!-- Quick Start -->
-      <section class="py-6">
+      <!-- <section class="py-6">
         <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
           <Icon name="lucide:rocket" class="w-6 h-6 text-primary" />
           <span>Quick Start</span>
@@ -156,16 +142,16 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
             >
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!-- GitHub Stats -->
       <section class="py-6">
         <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
           <Icon name="lucide:github" class="w-6 h-6 text-primary" />
-          <span>Repository Stats</span>
+          <span>Github Stats</span>
         </h2>
 
-        <GitHubStats username="EveSunMaple" repositoryName="Frosti" showLanguages={true} showContributors={true} />
+        <GitHubStats username="NotBocchi"  showLanguages={true} showContributors={true} />
       </section>
     </div>
   </MainCard>

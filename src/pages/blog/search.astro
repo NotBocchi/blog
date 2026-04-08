@@ -42,6 +42,20 @@ import { Icon } from "astro-icon/components";
 
     onIdle(async () => {
       try {
+        const searchContainer = document.querySelector("#search-container");
+        const pagefindIndexExists = await hasPagefindIndex();
+
+        if (!pagefindIndexExists) {
+          if (searchContainer) {
+            searchContainer.innerHTML = `
+              <div class="alert shadow-lg">
+                搜索索引尚未生成。请先在项目目录执行 <code>npm run search:index</code>，再刷新页面。
+              </div>
+            `;
+          }
+          return;
+        }
+
         // @ts-ignore - Pagefind UI types
         const { PagefindUI } = await import("@pagefind/default-ui");
 
@@ -79,12 +93,21 @@ import { Icon } from "astro-icon/components";
         const searchContainer = document.querySelector("#search-container");
         if (searchContainer) {
           searchContainer.innerHTML = `
-            <div class="alert alert-error shadow-lg">
-              Error loading search functionality. Please try again later.
+            <div class="alert shadow-lg">
+              搜索加载失败。请执行 <code>npm run search:index</code> 后重试。
             </div>
           `;
         }
       }
     });
+  }
+
+  async function hasPagefindIndex(): Promise<boolean> {
+    try {
+      const response = await fetch("/pagefind/pagefind.js", { method: "HEAD", cache: "no-store" });
+      return response.ok;
+    } catch {
+      return false;
+    }
   }
 </script>

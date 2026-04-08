@@ -9,6 +9,7 @@ export interface MainCardProps extends PostData {
   infoIcon?: string; // Icon for the info button
   helpText?: string; // Custom help text (defaults to "Learn More")
   textOverlay?: string; // Text to overlay on background when no image
+  overlayImage?: string; // Image URL to show in header when no image
   showTextBackground?: boolean; // Show text background when no image
   headerClass?: string; // Additional classes for the header
   extraClasses?: string; // Additional classes for the whole card
@@ -21,6 +22,7 @@ const {
   infoIcon = "lucide:help-circle",
   helpText = t("label.learnMore"),
   textOverlay,
+  overlayImage,
   showTextBackground = true,
   headerClass = "",
   extraClasses = "",
@@ -82,16 +84,21 @@ const accessibleHelpText = `${helpText}: ${title}`;
           )}
         </div>
       </div>
-    ) : textOverlay ? (
+    ) : textOverlay || overlayImage ? (
       // No image, but with textOverlay - show gradient background with overlay text
       <div class="relative">
         <div class={`aspect-video w-full overflow-hidden bg-gradient-to-br from-base-300 to-base-100 ${headerClass}`}>
-          {showTextBackground && textOverlay && (
+          {overlayImage ? (
+            <img src={overlayImage} alt={title} loading="eager" class="w-full h-full object-cover" />
+          ) : (
+            showTextBackground &&
+            textOverlay && (
             <div class="absolute inset-0 w-full h-full error-animation-container">
               <div class="text-9xl md:text-[12rem] font-bold text-primary opacity-20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 {textOverlay}
               </div>
             </div>
+            )
           )}
         </div>
 
